@@ -126,6 +126,10 @@ void menuPrincipal(informacoes_conta *conta) {
                 conta->qtd_investimentos = 0;
                 salvarDados(conta, "dados.txt");
                 printf("Todos os dados foram apagados.\n");
+                printf("Digite o nome do titular da conta: ");
+                fgets(conta->titular, TAM, stdin);  
+                break;
+                break;
                 break;
 
             case 0:
@@ -143,11 +147,6 @@ int main() {
     informacoes_conta conta;
     inicializarDataAtual();
     carregarDados(&conta, "dados.txt");
-
-    if (conta.qtd_investimentos == 0) {
-        printf("Digite o nome do titular da conta: ");
-        fgets(conta.titular, TAM, stdin);
-    }
 
     menuPrincipal(&conta);
     return 0;
